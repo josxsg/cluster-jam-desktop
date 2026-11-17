@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ClusterJAM.Desktop.App/ClusterJAM.Desktop.App.csproj" />
+  <Project Path="ClusterJAM.Desktop.Business/ClusterJAM.Desktop.Business.csproj" />
+  <Project Path="ClusterJAM.Desktop.Data/ClusterJAM.Desktop.Data.csproj" />
+</Solution>
