@@ -1,24 +1,30 @@
-﻿using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Threading;
+using ClusterJAM.Desktop.App.ViewModels;
 
-namespace ClusterJAM.Desktop.App
+namespace ClusterJAM.Desktop.App;
+
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    private readonly AuthenticationViewModel _viewModel;
+    private readonly DispatcherTimer _sessionTimer = new() { Interval = TimeSpan.FromSeconds(30) };
+
+    public MainWindow(AuthenticationViewModel viewModel)
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+        _viewModel = viewModel;
+        DataContext = viewModel;
+        _sessionTimer.Tick += OnSessionTick;
+        Loaded += (_, _) => _sessionTimer.Start();
+        Closed += OnClosed;
+    }
+
+    private async void OnSessionTick(object? sender, EventArgs args) => await _viewModel.MaintainSessionAsync();
+
+    private void OnClosed(object? sender, EventArgs args)
+    {
+        _sessionTimer.Stop();
+        _sessionTimer.Tick -= OnSessionTick;
+        _viewModel.Dispose();
     }
 }

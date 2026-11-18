@@ -1,5 +1,7 @@
 <Solution>
-  <Project Path="ClusterJAM.Desktop.App/ClusterJAM.Desktop.App.csproj" />
-  <Project Path="ClusterJAM.Desktop.Business/ClusterJAM.Desktop.Business.csproj" />
-  <Project Path="ClusterJAM.Desktop.Data/ClusterJAM.Desktop.Data.csproj" />
+    <Project Path="ClusterJAM.Desktop.App/ClusterJAM.Desktop.App.csproj" />
+    <Project Path="ClusterJAM.Desktop.Business/ClusterJAM.Desktop.Business.csproj" />
+    <Project Path="ClusterJAM.Desktop.Data/ClusterJAM.Desktop.Data.csproj" />
+    <Project Path="ClusterJAM.Desktop.Tests/ClusterJAM.Desktop.Tests.csproj" />
+    <Project Path="tools/ClusterJAM.Desktop.SmokeChecks/ClusterJAM.Desktop.SmokeChecks.csproj" />
 </Solution>
