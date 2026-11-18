@@ -5,6 +5,10 @@
 
 # dotenv files
 .env
+.env.*
+*.env
+!.env.example
+!*.env.example
 
 # User-specific files
 *.rsuser
@@ -485,3 +489,30 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Local backend process files, logs and machine-specific proxy configuration
+.local/
+appsettings.local.json
+appsettings.*.local.json
+
+# Local credentials, certificates and process output
+.secrets/
+.certificates/
+.pki/
+secrets.json
+*.key
+*.pem
+*.p12
+*.crt
+*.cer
+*.der
+*.csr
+*.jks
+*.keystore
+*.jsonl
+*.pid
+
+# Personal guides and generated review material
+/docs/
+/reports/
+/screenshots/
